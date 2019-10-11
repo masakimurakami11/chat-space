@@ -3,10 +3,8 @@
 |Column|Type|Options|
 |------|----|-------|
 |name|string|null: false, unique: true|
-|image|string||
 |address|text|null: false|
 |passward|text|null: false|
-|nickname|string|null: false|
 
 ### Association
 - has_many :groups, through: :users_groups
@@ -17,7 +15,7 @@
 
 |Column|Type|Options|
 |------|----|-------|
-|group_name|string|null: false|
+|name|string|null: false|
 
 ### Association
 - has_many :users, through: :users_groups
@@ -29,7 +27,7 @@
 
 |Column|Type|Options|
 |------|----|-------|
-|chat|text|null: false|
+|chat|text||
 |image|string||
 |user_id|integer|null: false, foreign_key: true|
 |group_id|integer|null: false, foreign_key: true|
