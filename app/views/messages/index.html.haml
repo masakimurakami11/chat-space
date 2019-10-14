@@ -1,0 +1,42 @@
+.header
+  .header__text
+    グループを作成しました
+.side
+  .side__users
+    ユーザー
+    .side__users-cog
+      = link_to "#" do
+        = fa_icon 'cog'
+    .side__users-edit
+      = link_to "#" do
+        = fa_icon 'edit'
+  .side__groups
+    .side__groups-name
+      グループ１
+    .side__groups-message
+      こんにちは
+.main
+  .main__groups
+    .main__groups-name
+      グループ名
+    .main__groups-member
+      メンバー
+    .main__groups-button
+      =link_to "#", class: "main__groups-button__text" do
+        EDIT
+  .main__messages
+    .main__messages-user
+      ユーザー１
+    .main__messages-date
+      2019/10/14
+    .main__messages-message
+      ありがとう
+  .main__form
+    .form-wrapper
+      .input-field
+        %input#message.input-field__box{:name => "message", :placeholder => "type a message", :type => "text"}
+        %label.input-field__icon{for: "upload-icon"}
+          = fa_icon 'image'
+          %input{:class => "input-field__post", :type => "file", :id => "upload-icon"}
+      %button{:name => "send", :type => "submit", :value => "value"} SEND
+    
