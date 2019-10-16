@@ -27,7 +27,7 @@ $header-color: #38aef0;
 
 .side {
   float: left;
-  height: 100%;
+  height: 100vh;
   width: 300px;
   color: #ffffff;
   &__users {
@@ -52,17 +52,22 @@ $header-color: #38aef0;
       color: #ffffff;
     }
   &__groups {
-    height: calc(100% - 100px);
+    height: calc(100vh - 100px);
     width: 300px;
     background: #2f3e51;
     padding-top: 20px;
+    overflow: scroll;
     .side__groups-name {
       margin: 0 20px 0 20px;
+      color: #ffffff;
       font-size: 15px;
+      text-decoration: none;
     }
     .side__groups-message {
       margin: 15px 20px 40px 20px;
+      color: #ffffff;
       font-size: 11px;
+      text-decoration: none;
     }
   }
 }
