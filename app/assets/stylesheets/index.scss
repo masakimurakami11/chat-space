@@ -4,26 +4,16 @@
 
 html {
   height: 100%;
+  width: 100vw;
 }
 
 body {
   height: 100%;
+  width: 100vw;
+  overflow: hidden;
 }
 
 $header-color: #38aef0;
-
-.header {
-  height: 25px;
-  width: 100%;
-  background-color: $header-color;
-  position: fixed;
-  top: 0;
-  &__text {
-    text-align: center;
-    color: white;
-    line-height: 25px;
-  }
-}
 
 .side {
   float: left;
@@ -73,7 +63,7 @@ $header-color: #38aef0;
 }
 
 .main{
-  height: 100%;
+  height: 100vh;
   width: calc(100% - 300px);
   float: right;
   &__groups{
@@ -112,22 +102,23 @@ $header-color: #38aef0;
       color: $header-color;
       cursor: pointer;
     }
-  &__messages {
-    width: 100%;
-    height: calc(100% - 200px);
-    .main__messages-user {
+  &__message__box {
+    width: 100vw;
+    height: calc(100vh - 200px);
+    overflow: scroll;
+    .main__message-name {
       margin: 46px 0 0 40px;
       float: left;
-      font-size: 16px;
+      font-size: 16px bold;
       color: #434A54;
     }
-    .main__messages-date {
+    .main__message-date {
       margin: 46px 0 0 10px;
       float: left;
       font-size: 12px;
       color: #999999;
     }
-    .main__messages-message {
+    .main__message-message {
       width: 100%;
       margin: 10px 0 40px 40px;
       font-size: 14px;
@@ -138,32 +129,40 @@ $header-color: #38aef0;
   &__form {
     height: 100px;
     padding: 25px 40px;
+    width: calc(100vw - 300px);
     background-color: #ddd;
+    position: fixed;
+    bottom: 0;
+    right: 0;
     .form-wrapper {
       display: flex;
+      position: relative;
       .input-field {
-        width: 100%;
+        width: 935px;
         position: relative;
-        &__box {
+        .form__message {
           height: 50px;
           width: 100%;
           font-size: 16px;
           padding: 0 40px 0 10px;
         }
-        &__icon {
+        .form__mask__image {
           position: absolute;
           top: 10px;
           right: 10px;
           cursor: pointer;
         }
-        &__post {
+        .hidden {
           display: none;
         }
         
       }
-      button{
+      .form__submit{
         width: 100px;
         height: 50px;
+        position: fixed;
+        bottom:25px;
+        right: 40px;
         text-align: center;
         line-height: 50px;
         margin-left: 15px;

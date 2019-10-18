@@ -1,16 +1,30 @@
 .side
   .side__users
     = current_user.name
+<<<<<<< HEAD
+    .side__users-cog
+      = link_to edit_user_path(current_user) do
+        = fa_icon 'cog', class: 'icon'
+    .side__users-edit
+      = link_to new_group_path do
+        = fa_icon 'pencil-square-o', class: 'icon'
+=======
     .side__users-edit
       = link_to new_group_path do
         = fa_icon 'pencil-square-o', class: 'icon'
     .side__users-cog
       = link_to edit_user_path(current_user) do
         = fa_icon 'cog', class: 'icon'
+>>>>>>> master
   .side__groups
     - current_user.groups.each do |group|
       = link_to group_messages_path(group) do
         .side__groups-name
           = group.name
         .side__groups-message
+<<<<<<< HEAD
+          = group.show_last_message
+          
+=======
           メッセージはまだありません。
+>>>>>>> master
