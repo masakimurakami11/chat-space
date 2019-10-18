@@ -1,4 +1,5 @@
 class MessagesController < ApplicationController
+<<<<<<< HEAD
   before_action :set_group
 
   def index
@@ -29,3 +30,9 @@ class MessagesController < ApplicationController
     @members = @group.users.flat_map(&:name)
   end
 end
+=======
+  def index
+  end
+end
+
+>>>>>>> master

@@ -1,6 +1,7 @@
 class Group < ApplicationRecord
   has_many :group_users
   has_many :users, through: :group_users
+<<<<<<< HEAD
   has_many :messages
   validates :name, presence: true, uniqueness: true
 
@@ -11,4 +12,7 @@ class Group < ApplicationRecord
       'まだメッセージはありません。'
     end
   end
+=======
+  validates :name, presence: true, uniqueness: true
+>>>>>>> master
 end

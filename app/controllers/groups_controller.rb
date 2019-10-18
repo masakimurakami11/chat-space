@@ -1,5 +1,8 @@
 class GroupsController < ApplicationController
+<<<<<<< HEAD
   before_action :set_group, only: [:edit, :update]
+=======
+>>>>>>> master
 
   def index
   end
