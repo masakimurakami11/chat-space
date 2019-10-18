@@ -1,0 +1,27 @@
+.header
+  .header__text
+  
+= render partial: 'shared/side_bar'
+.main
+  .main__groups
+    .main__groups-name
+      = @group.name
+    .main__groups-member
+      Member:
+      - @members.each do |member|
+        = member
+    .main__groups-button
+      =link_to 'edit', class: "main__groups-button__text" do
+        EDIT
+  .main__message__box
+    = render partial: 'message', collection: @messages
+  .main__form
+    .form-wrapper
+      .input-field
+        = form_for [@group, @message] do |f|
+          = f.text_field :content, class: 'form__message', placeholder: 'type a message'
+          .form__mask
+            = f.label :image, class: 'form__mask__image' do
+              = fa_icon 'picture-o', class: 'icon'
+              = f.file_field :image, class: 'hidden'
+          = f.submit 'Send', class: 'form__submit'
