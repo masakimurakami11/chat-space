@@ -45,17 +45,17 @@ $(function(){
         dataType: 'json',
         data: {id: last_message_id }
       })
-        .done(function(messages) {
-          var insertHTML = '';
-          messages.forEach(function(message){
-            insertHTML = new_message(message);
-            $('.main__message__box').append(insertHTML);
-            $('.main__message__box').animate({scrollTop: $('.main__message__box')[0].scrollHeight},);
-          });
-        })
-        .fail(function() {
-          alert('error');
+      .done(function(messages) {
+        var insertHTML = '';
+        messages.forEach(function(message){
+          insertHTML = new_message(message);
+          $('.main__message__box').append(insertHTML);
+          $('.main__message__box').animate({scrollTop: $('.main__message__box')[0].scrollHeight},);
         });
+      })
+      .fail(function() {
+        alert('error');
+      });
     };
     setInterval(reloadMessages, 5000);
   });
