@@ -1,4 +1,5 @@
 $(function(){
+
   function new_message(message){
     var image = (message.image)?`<img src=${message.image} class="lower-message__image">`:"";
     var new_message = `<div class = "main__message"  data-id="${message.id}">
@@ -35,6 +36,7 @@ $(function(){
     })
     .always(function(){
     $( "input" ).prop( "disabled", false );
+    return false;
     })
 
     var reloadMessages = function() {

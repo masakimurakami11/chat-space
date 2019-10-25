@@ -54,12 +54,11 @@ $(function() {
   $(document).on("click",".user-search-add",function(){
     var user_name = $(this).data('user-name');
     var user_id = $(this).data('user-id');
-    $(this).parent().remove();
     var html = buildNAME(user_name,user_id);
-    $(".chat-group-users").append(html);
-      
-  $(document).on("click",".user-search-remove",function(){
+    $(".chat-group-users.js-add-userdesu").append(html);
     $(this).parent().remove();
     })
+    $(document).on("click",".user-search-remove",function(){
+    $(this).parent().remove();
   })
 })
