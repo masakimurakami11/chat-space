@@ -1,3 +1,4 @@
+$(document).on('')
 $(function(){
 
   function new_message(message){
@@ -40,7 +41,11 @@ $(function(){
     })
 
     var reloadMessages = function() {
-      var last_message_id = $('.main__message:last').data("id");
+      if($('.main__message')[0]){
+        var last_message_id = $('.main__message:last').data("id");
+      } else {
+        var last_message_id = 0
+      }
       $.ajax({
         url: 'api/messages',
         type: 'GET',
@@ -62,3 +67,4 @@ $(function(){
     setInterval(reloadMessages, 5000);
   });
 })
+
