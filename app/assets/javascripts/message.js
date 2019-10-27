@@ -1,9 +1,7 @@
-$(document).on('')
 $(function(){
-
   function new_message(message){
     var image = (message.image)?`<img src=${message.image} class="lower-message__image">`:"";
-    var new_message = `<div class = "main__message"  data-id="${message.id}">
+    var new_message = `<div class = "main__message"  data-id = "${message.id}">
                         <div class = "main__message-name"> ${message.name} </div>
                         <div class = "main__message-date"> ${message.date} </div>
                         <div class = "main__message-message">
@@ -39,32 +37,29 @@ $(function(){
     $( "input" ).prop( "disabled", false );
     return false;
     })
-
-    var reloadMessages = function() {
-      if($('.main__message')[0]){
-        var last_message_id = $('.main__message:last').data("id");
-      } else {
-        var last_message_id = 0
-      }
-      $.ajax({
-        url: 'api/messages',
-        type: 'GET',
-        dataType: 'json',
-        data: {id: last_message_id }
-      })
-      .done(function(messages) {
-        var insertHTML = '';
-        messages.forEach(function(message){
-          insertHTML = new_message(message);
-          $('.main__message__box').append(insertHTML);
-          $('.main__message__box').animate({scrollTop: $('.main__message__box')[0].scrollHeight},);
-        });
-      })
-      .fail(function() {
-        alert('error');
-      });
-    };
-    setInterval(reloadMessages, 5000);
   });
-})
+  var reloadMessages = function(){
+    if (window.location.href.match(/\/groups\/\d+\/messages/)){
+    var last_message_id = $('.main__message:last').data("id");
+    $.ajax({
+      url: 'api/messages',
+      type: 'GET',
+      dataType: 'json',
+      data: {id: last_message_id }
+    })
+    .done(function(messages) {
+      var insertHTML = '';
+      messages.forEach(function(message){
+        insertHTML = new_message(message);
+        $('.main__message__box').append(insertHTML);
+        $('.main__message__box').animate({scrollTop: $('.main__message__box')[0].scrollHeight},);
+      });
+    })
+    .fail(function() {
+      alert('error');
+    });
+   };
+  }
+  setInterval(reloadMessages, 5000);
+});
 
